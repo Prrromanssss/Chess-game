@@ -156,7 +156,7 @@ def main(event):
             if flag_for_end:
                 redraw_canvas('all')
                 canvas.create_rectangle(0, 190, 760, 570, fill='white')
-                canvas.create_text(370, 380, text=f"{'Whites' if color == WHITE else 'Blacks'} won!",
+                canvas.create_text(370, 380, text=f"{'Whites' if color == BLACK else 'Blacks'} won!",
                                    fill='black', font='Helvetica 70 bold', justify=tk.CENTER)
             canvas_field[arr_of_two_fig[0][0]][arr_of_two_fig[0][1]], \
                 canvas_field[arr_of_two_fig[1][0]][arr_of_two_fig[1][1]] = None, \

@@ -56,5 +56,5 @@ This project repeats all the rules that are in the official game(Подробн�
 
 
 
-![Image of the project](https://github.com/Prrromanssss/Chess_GUI/raw/main/media/media/image_of_the.png)
+![Image of the project](https://github.com/Prrromanssss/Chess_GUI/raw/main/media/media/image_of_the_project.png)
 ***

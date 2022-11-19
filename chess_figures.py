@@ -41,10 +41,13 @@ class Board:
         start_ind = 0 if self.color == BLACK else 7
         if start_ind != row or col != 2:
             return False
-        if type(self.field[start_ind][0]) is Rook and type(self.field[start_ind][4]) is King \
-                and all(self.field[start_ind][i] is None for i in range(1, 4)) \
-                and self.field[start_ind][0].flag_for_cast \
-                and self.field[start_ind][4].flag_for_cast:
+        if (
+            type(self.field[start_ind][0]) is Rook and
+            type(self.field[start_ind][4]) is King
+            and all(self.field[start_ind][i] is None for i in range(1, 4))
+            and self.field[start_ind][0].flag_for_cast
+            and self.field[start_ind][4].flag_for_cast
+           ):
             return True
         return False
 
@@ -52,8 +55,12 @@ class Board:
         start_ind = 0 if self.color == BLACK else 7
         if self.can_castling0(start_ind, 2):
             self.color = opponent(self.color)
-            self.field[start_ind][0], self.field[start_ind][3] = None, self.field[start_ind][0]
-            self.field[start_ind][4], self.field[start_ind][2] = None, self.field[start_ind][4]
+            self.field[start_ind][3] = self.field[start_ind][0]
+            self.field[start_ind][0] = None
+            # self.field[start_ind][0], self.field[start_ind][3] = None, self.field[start_ind][0] # noqa
+            self.field[start_ind][2] = self.field[start_ind][4]
+            self.field[start_ind][4] = None
+            # self.field[start_ind][4], self.field[start_ind][2] = None, self.field[start_ind][4] # noqa
             return True
         return False
 
@@ -61,10 +68,13 @@ class Board:
         start_ind = 0 if self.color == BLACK else 7
         if start_ind != row or col != 6:
             return False
-        if type(self.field[start_ind][-1]) is Rook and type(self.field[start_ind][4]) is King \
-                and all(self.field[start_ind][i] is None for i in range(5, 7)) \
-                and self.field[start_ind][-1].flag_for_cast \
-                and self.field[start_ind][4].flag_for_cast:
+        if (
+            type(self.field[start_ind][-1]) is Rook and
+            type(self.field[start_ind][4]) is King
+            and all(self.field[start_ind][i] is None for i in range(5, 7))
+            and self.field[start_ind][-1].flag_for_cast
+            and self.field[start_ind][4].flag_for_cast
+        ):
             return True
         return False
 
@@ -72,13 +82,20 @@ class Board:
         start_ind = 0 if self.color == BLACK else 7
         if self.can_castling7(start_ind, 6):
             self.color = opponent(self.color)
-            self.field[start_ind][-1], self.field[start_ind][-3] = None, self.field[start_ind][-1]
-            self.field[start_ind][4], self.field[start_ind][-2] = None, self.field[start_ind][4]
+            self.field[start_ind][-3] = self.field[start_ind][-1]
+            self.field[start_ind][-1] = None
+            # self.field[start_ind][-1], self.field[start_ind][-3] = None, self.field[start_ind][-1] # noqa
+            self.field[start_ind][-2] = self.field[start_ind][4]
+            self.field[start_ind][4] = self.field[start_ind][-2]
+            # self.field[start_ind][4], self.field[start_ind][-2] = None, self.field[start_ind][4] # noqa
             return True
         return False
 
     def taking_on_the_pass(self, row, col):
-        if type(self.field[row][col]) is Pawn and self.field[row][col].flag_for_pass:
+        if (
+            type(self.field[row][col]) is Pawn and
+            self.field[row][col].flag_for_pass
+        ):
             self.previous_move_for_pass, self.pass_figure = True, (row, col)
             return True
         return False
@@ -98,7 +115,11 @@ class Board:
             return False
         if piece.get_color() != self.color:
             return False
-        if type(self.field[row][col]) is Pawn and self.field[row][col].can_taking_pass(self, row, col, row1, col1):
+        if (
+            type(self.field[row][col]) is Pawn and
+                self.field[row][col].can_taking_pass
+                (self, row, col, row1, col1)
+        ):
             self.field[self.pass_figure[0]][self.pass_figure[1]] = None
             self.previous_move_for_pass = False
         elif self.field[row1][col1] is None:
@@ -130,10 +151,18 @@ class Knight:
     def can_move(self, board, row, col, row1, col1):
         if not correct_coords(row1, col1):
             return False
-        if board.field[row1][col1] is not None and board.field[row1][col1].get_color()\
-                == board.field[row][col].get_color():
+        if (
+            board.field[row1][col1] is not None and
+            board.field[row1][col1].get_color()
+                == board.field[row][col].get_color()
+        ):
             return False
-        if (abs(col - col1) == 1 and abs(row - row1) == 2) or (abs(col - col1) == 2 and abs(row - row1) == 1):
+        if (
+            abs(col - col1) == 1 and
+            abs(row - row1) == 2) or (
+                abs(col - col1) == 2
+                and abs(row - row1) == 1
+                                   ):
             return True
         return False
 

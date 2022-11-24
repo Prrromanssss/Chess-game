@@ -50,7 +50,7 @@ python main.py
 
 
 ## Rules
-This project repeats all the rules that are in the official game(More: [тут](https://en.wikipedia.org/wiki/Chess).
+This project repeats all the rules that are in the official game(More: [here](https://en.wikipedia.org/wiki/Chess).
 
 ## Сontrol
 To walk, you need to click on the figure, those places where you can move your figure will be darkened. If the figure doesn't move for some reason, it's probably not your move :)

@@ -1,7 +1,7 @@
 # Chess game
 
 
-## ![flake8 test](https://github.com/Prrromanssss/Chess_GUI/actions/workflows/python-package.yml/badge.svg)
+## ![flake8 test](https://github.com/Prrromanssss/Chess-game/actions/workflows/python-package.yml/badge.svg)
 
 
 In this project, I wrote a famous game - Chess.
@@ -17,7 +17,7 @@ In this project, I wrote a famous game - Chess.
 
 1.1 Run this command
 ```commandline
-git clone https://github.com/Prrromanssss/Chess_GUI.git
+git clone https://github.com/Prrromanssss/Chess-game.git
 ```
 
 ### 2. Creation and activation venv
@@ -57,5 +57,5 @@ To walk, you need to click on the figure, those places where you can move your f
 
 
 
-![Image of the project](https://github.com/Prrromanssss/Chess_GUI/raw/main/media/image_of_the_project.png)
+![Image of the project](https://github.com/Prrromanssss/Chess-game/raw/main/media/image_of_the_project.png)
 ***
